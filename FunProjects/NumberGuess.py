@@ -7,7 +7,7 @@ def guess_the_number():
     
     while True:
         try:
-            guess = input("Enter your guess (1-100): ")  
+            guess = int(input("Enter your guess (1-100): ")) 
             attempts += 1
             if guess < target:   
                 print("Too low!")
@@ -16,9 +16,13 @@ def guess_the_number():
             else:
                 print(f"Congratulations! You guessed it in {attempts} attempts.")
                 break
-            if attempts > 5:   
-                target = random.randint(1, 100)
-                print("The target number has changed!")
+            if attempts > 5:
+                decission=input("do you want to continue the game(yes/no):")
+                if decission.lower()=='decission':
+                    target = random.randint(1, 100)
+                    print("The target number has changed!")
+                else:
+                    break
         except ValueError:
             print("Invalid input! Please enter a valid number.")   
 
